@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import OSLog
 
-public extension Float {
+extension Float {
     
     var double: Double {
         return Double(self)
@@ -17,7 +17,7 @@ public extension Float {
     
 }
 
-public extension Double {
+extension Double {
     
     var int: Int {
         return Int(self)
@@ -28,6 +28,7 @@ public extension Double {
     }
     
 }
+
 
 public class SHVideoPlayer: UIView {
     
@@ -181,7 +182,7 @@ public class SHVideoPlayer: UIView {
 }
 
 // MARK: initialise player
-extension SHVideoPlayer {
+public extension SHVideoPlayer {
     
     var player: AVPlayer? {
         get {
@@ -424,7 +425,7 @@ extension SHVideoPlayer.State: Equatable {
 
 
 // MARK: AVPlayerItem Extension
-public extension AVPlayerItem {
+extension AVPlayerItem {
     
     var bufferProgress: Double {
         return currentBufferDuration / totalDuration
@@ -450,7 +451,7 @@ public extension AVPlayerItem {
 }
 
 
-public extension AVPlayer {
+extension AVPlayer {
     
     var bufferProgress: Double {
         return currentItem?.bufferProgress ?? -1
