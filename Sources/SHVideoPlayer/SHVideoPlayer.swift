@@ -230,12 +230,12 @@ public extension SHVideoPlayer {
         }
         
         var asset = AVAsset(url: url)
-        if let cachedAsset = CacheManager.shared.fetchAsset(for: url) {
+        if let cachedAsset = SHVideoCacheManager.shared.fetchAsset(for: url) {
             logger.info("asset found in cache")
             asset = cachedAsset
         }else {
             logger.info("asset caching")
-            CacheManager.shared.addAsset(for: url, asset: asset)
+            SHVideoCacheManager.shared.addAsset(for: url, asset: asset)
         }
         
         let currentItem = AVPlayerItem(asset: asset)

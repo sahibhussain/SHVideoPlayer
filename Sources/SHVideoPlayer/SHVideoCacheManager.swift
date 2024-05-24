@@ -8,10 +8,10 @@
 import Foundation
 import AVFoundation
 
-public class CacheManager {
+public class SHVideoCacheManager {
     
-    static let shared = CacheManager()
-    static var DEFAULT_CACHED_VIDEO_LIMIT = 10
+    public static let shared = SHVideoCacheManager()
+    public static var DEFAULT_CACHED_VIDEO_LIMIT = 10
     
     private var assets: [Any] = []
     
@@ -33,8 +33,8 @@ public class CacheManager {
         let assetDict = [url.absoluteString: asset] as [String: Any]
         assets.append(assetDict)
 
-        if assets.count > CacheManager.DEFAULT_CACHED_VIDEO_LIMIT {
-            let count = assets.count - CacheManager.DEFAULT_CACHED_VIDEO_LIMIT
+        if assets.count > SHVideoCacheManager.DEFAULT_CACHED_VIDEO_LIMIT {
+            let count = assets.count - SHVideoCacheManager.DEFAULT_CACHED_VIDEO_LIMIT
             assets.removeFirst(count)
         }
         
